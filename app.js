@@ -24,13 +24,11 @@ async function getWeather() {
 async function getSevenDays(input) {
    try {
       let info = await input;
-      console.log(info)
       let resArr = info.daily
       for (let i = 1; i < resArr.length; i++) {
          const date = new Date(resArr[i].dt * 1000)
          const weather = resArr[i].weather[0]
          const temp = resArr[i].temp
-         console.log('date : ', date, 'weather: ', weather)
          seedUI(date, weather, temp)
       }
    } catch (err) {
@@ -39,15 +37,10 @@ async function getSevenDays(input) {
 }
 
 
-form.addEventListener('submit', function (e) {
-   e.preventDefault()
-   forecastCtn.innerHTML = ''
-   getSevenDays(getWeather())
-})
 
 
-function setBgd(location) {
-   document.body.style.backgroundImage = `url('https://source.unsplash.com/random/?landscape,${location}')`
+function setBgd(locationOne) {
+   document.body.style.backgroundImage = `url('https://source.unsplash.com/random/?${locationOne},landscape')`
 }
 
 
@@ -81,9 +74,7 @@ function seedUI(date, weatherObj, tempObj) {
    temp.innerText = `Temp: 
    Min ${minTemp} Max ${maxTemp}`
 
-   // const descrWeather = document.createElement('p')
-   // descrWeather.classList.add('descrweather')
-   // descrWeather.innerText = weatherObj.description
+
 
    const card = document.createElement('div')
    card.classList.add('card')
@@ -91,7 +82,15 @@ function seedUI(date, weatherObj, tempObj) {
    card.appendChild(headDate)
    card.appendChild(headWeatherCtn)
    card.appendChild(temp)
-   // card.appendChild(descrWeather)
+
    forecastCtn.appendChild(card)
 
 }
+
+
+
+form.addEventListener('submit', function (e) {
+   e.preventDefault()
+   forecastCtn.innerHTML = ''
+   getSevenDays(getWeather())
+})
