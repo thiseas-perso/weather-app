@@ -12,27 +12,28 @@
 </head>
 
 <body>
-   <h1>Weather forecast</h1>
-   <div class="form-ctn">
-      <form action="">
-         <label for="search-loc">Location</label>
-         <input type="search" name="search-loc" id="search-loc">
+   <div class="background"></div>
+   <main>
+      <h1>Weather forecast</h1>
+      <div class="form-ctn">
+         <form action="">
+            <label for="search-loc">Location</label>
+            <input type="search" name="search-loc" id="search-loc">
+            <div>
+               <input type="radio" id="metric" name="units" value="metric" checked>
+               <label for="metric">metric</label>
+            </div>
+            <div>
+               <input type="radio" id="imperial" name="units" value="imperial">
+               <label for="imperial">imperial</label>
+            </div>
+            <button type="submit" id="btn">Search</button>
+         </form>
+      </div>
+      <div id="display-current"></div>
+      <div id="display-forecast"></div>
+   </main>
 
-         <div>
-            <input type="radio" id="metric" name="units" value="metric" checked>
-            <label for="metric">metric</label>
-         </div>
-
-         <div>
-            <input type="radio" id="imperial" name="units" value="imperial">
-            <label for="imperial">imperial</label>
-         </div>
-
-         <button type="submit" id="btn">Search</button>
-      </form>
-   </div>
-   <div id="display-current"></div>
-   <div id="display-forecast"></div>
 </body>
 
 </html>
