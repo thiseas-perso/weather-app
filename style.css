@@ -1,0 +1,22 @@
+form{
+   display: flex;
+   flex-direction: column;
+}
+
+.form-ctn{
+   width: min-content;
+}
+
+#display-forecast{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   gap: 0.5rem;
+   grid-template-rows: auto;
+}
+
+.card{
+   padding: 0.5rem;
+   max-width: 150px;
+   border: 1px solid red;
+}
+
